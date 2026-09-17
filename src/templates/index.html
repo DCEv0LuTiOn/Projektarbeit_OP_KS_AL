@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projektarbeit</title>
+    <!-- Einbindung von CSS aus src/static/css/style.css -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+    <main class="container">
+        <h1>Willkommen zu deiner Projektarbeit</h1>
+        <p>Das Flask-Backend und das Frontend laufen erfolgreich</p>
+
+        <!-- Beispiel-Container für ein Chart.js Diagramm -->
+        <div class="chart-container" style="position: relative; height:30vh; width:60vw; margin-top: 20px;">
+            <canvas id="myChart"></canvas>
+        </div>
+    </main>
+</body>
+</html>
