@@ -3,20 +3,129 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projektarbeit</title>
-    <!-- Einbindung von CSS aus src/static/css/style.css -->
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <title>Robotis-PI Steuerung</title>
+    <link rel="stylesheet" href="../static/style.css">
 </head>
 <body>
 
-    <main class="container">
-        <h1>Willkommen zu deiner Projektarbeit</h1>
-        <p>Das Flask-Backend und das Frontend laufen erfolgreich</p>
-
-        <!-- Beispiel-Container für ein Chart.js Diagramm -->
-        <div class="chart-container" style="position: relative; height:30vh; width:60vw; margin-top: 20px;">
-            <canvas id="myChart"></canvas>
+    <!-- Header Navigation -->
+    <header class="navbar">
+        <div class="nav-company">
+            <img src="../static/Robotis_PI_Logo.png" alt="Logo" class="logo">
+            <span>Robotis-PI Steuerung</span>
         </div>
+        <a href="#" class="btn-download">Anleitung herunterladen</a>
+    </header>
+
+    <!-- Main Wireframe Layout -->
+    <main class="grid">
+
+        <!-- Left Column -->
+        <section class="col-left">
+            
+            <!-- Not-Aus -->
+            <button class="card notaus">NOT-AUS</button>
+
+            <!-- Programmauswahl -->
+            <div class="card">
+                <div class="card-title">Programmauswahl</div>
+                
+                <div class="select-with-icon">
+                    <span class="icon-box">📋</span>
+                    <select>
+                        <option>Programme</option>
+                    </select>
+                </div>
+
+                <input type="text" class="form-control" value="Programm Details" readonly>
+
+                <div class="checkbox-group">
+                    <input type="checkbox" id="endless">
+                    <label for="endless">Endlosschleife</label>
+                </div>
+
+                <input type="text" class="form-control" value="Anzahl Zyklen">
+
+                <div class="action-buttons">
+                    <button class="btn-wireframe">Start</button>
+                    <button class="btn-wireframe">Stop</button>
+                </div>
+            </div>
+
+            <!-- Häufige Programme -->
+            <div class="card">
+                <div class="card-title">Häufige Programme</div>
+                <div class="p-grid">
+                    <button class="p-btn">P1</button>
+                    <button class="p-btn">P2</button>
+                    <button class="p-btn">P3</button>
+                    <button class="p-btn">P4</button>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- Right Column -->
+        <section class="col-right">
+
+            <!-- Status/Fehler -->
+            <div class="card">
+                <div class="status-header">Status/Fehler</div>
+                <div class="status-boxes">
+                    <div class="status-box">Programm ... läuft</div>
+                    <div class="status-box">Fehler ... aufgetreten</div>
+                </div>
+            </div>
+
+            <!-- Anzahl Programmdurchläufe -->
+            <div class="card">
+                <div class="card-title">Anzahl Programmdurchläufe</div>
+                <div class="row-item">
+                    <div>Tile</div>
+                    <div>Text zur Beschreibung</div>
+                </div>
+                <div class="row-item">
+                    <div>Tile</div>
+                    <div>Text zur Beschreibung</div>
+                </div>
+                <div class="row-item">
+                    <div>Tile</div>
+                    <div>Text zur Beschreibung</div>
+                </div>
+                <div class="row-item">
+                    <div>Tile</div>
+                    <div>Text zur Beschreibung</div>
+                </div>
+                <div class="row-item">
+                    <div>Tile</div>
+                    <div>Text zur Beschreibung</div>
+                </div>
+            </div>
+
+            <!-- Programm-Log -->
+            <div class="card">
+                <div class="card-title">Programm-Log</div>
+                <div class="row-item">
+                    <div>Tile</div>
+                    <div>Text zur Beschreibung</div>
+                </div>
+                <div class="row-item">
+                    <div>Tile</div>
+                    <div>Text zur Beschreibung</div>
+                </div>
+                <div class="row-item">
+                    <div>Tile</div>
+                    <div>Text zur Beschreibung</div>
+                </div>
+                <div class="row-item">
+                    <div>Tile</div>
+                    <div>Text zur Beschreibung</div>
+                </div>
+            </div>
+
+        </section>
+
     </main>
+
 </body>
 </html>

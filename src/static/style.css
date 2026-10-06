@@ -1,0 +1,214 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    color: #222;
+}
+
+body {
+    background-color: #fcfcfc;
+    padding: 16px;
+    margin: 0 auto;
+}
+
+/* Top Navigation Bar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 2px solid #222;
+    border-radius: 6px;
+    padding: 8px 16px;
+    background-color: #fff;
+    margin-bottom: 16px;
+}
+
+.nav-company {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.logo {
+    width: 30px;
+    height: 40px;
+}
+
+.btn-download {
+    border: 2px solid #222;
+    border-radius: 6px;
+    padding: 6px 14px;
+    background: #fff;
+    text-decoration: none;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+/* Main Wireframe Layout Grid */
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 1.3fr;
+    gap: 16px;
+}
+
+/* Generic Card Styling */
+.card {
+    border: 2px solid #222;
+    border-radius: 8px;
+    padding: 14px;
+    background-color: #fff;
+    margin-bottom: 16px;
+}
+
+.card:last-child {
+    margin-bottom: 0;
+}
+
+.card-title {
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+/* Emergency Stop */
+.notaus {
+    width: 100%;
+    border: 2px solid #222;
+    text-align: center;
+    padding: 28px 14px;
+    font-size: 34px;
+    font-weight: normal;
+    background-color: #ff4d4d;
+    cursor: pointer;
+    &:hover {
+        background-color: #a40000;
+    }
+
+    &:active {
+        transform: scale(0.95);
+    }
+}
+
+/* Program Selection */
+.form-control {
+    width: 100%;
+    padding: 8px 12px;
+    border: 2px solid #222;
+    border-radius: 20px;
+    background: #fff;
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+
+.select-with-icon {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border: 2px solid #222;
+    border-radius: 20px;
+    padding: 4px 12px;
+    margin-bottom: 8px;
+}
+
+.select-with-icon select {
+    border: none;
+    width: 100%;
+    outline: none;
+    background: transparent;
+    font-size: 14px;
+}
+
+.checkbox-group {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 10px 4px;
+    font-size: 14px;
+}
+
+.checkbox-group input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    border: 2px solid #222;
+    border-radius: 4px;
+    appearance: none;
+    cursor: pointer;
+    position: relative;
+}
+
+.checkbox-group input[type="checkbox"]:checked::after {
+    content: "✓";
+    position: absolute;
+    top: -2px;
+    left: 3px;
+    font-size: 14px;
+}
+
+.action-buttons {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-top: 12px;
+}
+
+.btn-wireframe {
+    border: 2px solid #222;
+    border-radius: 20px;
+    padding: 8px;
+    background: #fff;
+    text-align: center;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+/* Frequent Programs Grid */
+.p-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-top: 6px;
+}
+
+.p-btn {
+    border: 2px solid #222;
+    border-radius: 8px;
+    padding: 16px;
+    text-align: center;
+    background: #fff;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+/* Right Side: Status/Error */
+.status-header {
+    text-align: center;
+    font-size: 18px;
+    margin-bottom: 12px;
+}
+
+.status-boxes {
+    display: grid;
+    grid-template-columns: 1fr 1.3fr;
+    gap: 12px;
+}
+
+.status-box {
+    border: 2px solid #222;
+    border-radius: 6px;
+    padding: 24px 12px;
+    text-align: center;
+    font-size: 16px;
+}
+
+.row-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 8px;
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+}
