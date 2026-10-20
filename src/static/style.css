@@ -1,214 +1,267 @@
+:root {
+    --primary: #2563eb;
+    --success: #16a34a;
+    --danger: #dc2626;
+    --bg-body: #f8fafc;
+    --bg-card: #ffffff;
+    --text-main: #0f172a;
+    --text-muted: #64748b;
+    --border: #e2e8f0;
+    --radius: 8px;
+}
+
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-family: Arial, sans-serif;
-    color: #222;
+    font-family: system-ui, sans-serif;
+    color: var(--text-main);
 }
 
 body {
-    background-color: #fcfcfc;
-    padding: 16px;
+    background-color: var(--bg-body);
+    padding: 20px;
+    max-width: 1500px;
     margin: 0 auto;
 }
 
-/* Top Navigation Bar */
-.navbar {
+/* ============================
+   LAYOUT (Header & Main Grid)
+   ============================ */
+header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border: 2px solid #222;
-    border-radius: 6px;
-    padding: 8px 16px;
-    background-color: #fff;
-    margin-bottom: 16px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 12px 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+
+    /* Nesting für das Logo und den Titel im Header */
+    div {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        font-weight: bold;
+        font-size: 18px;
+
+        img { height: 36px; }
+    }
 }
 
-.nav-company {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-weight: bold;
-    font-size: 16px;
-}
-
-.logo {
-    width: 30px;
-    height: 40px;
-}
-
-.btn-download {
-    border: 2px solid #222;
-    border-radius: 6px;
-    padding: 6px 14px;
-    background: #fff;
-    text-decoration: none;
-    font-size: 14px;
-    cursor: pointer;
-}
-
-/* Main Wireframe Layout Grid */
-.grid {
+main {
     display: grid;
-    grid-template-columns: 1fr 1.3fr;
-    gap: 16px;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 20px;
+
+    /* Jede Spalte (section) im Main-Bereich */
+    section {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
 }
 
-/* Generic Card Styling */
+/* ============================
+   KARTEN & FORMULARE (.card)
+   ============================ */
 .card {
-    border: 2px solid #222;
-    border-radius: 8px;
-    padding: 14px;
-    background-color: #fff;
-    margin-bottom: 16px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 18px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+
+    /* Überschriften in den Karten */
+    h2 {
+        font-size: 14px;
+        color: var(--text-muted);
+        margin-bottom: 14px;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+
+    /* Standard-Inputs in der Karte (z.B. Anzahl Zyklen) */
+    input[type="number"],
+    select {
+        width: 100%;
+        padding: 10px 14px;
+        border: 1px solid var(--border);
+        border-radius: 6px;
+        background: var(--bg-body);
+        margin-bottom: 12px;
+        outline: none;
+
+        /* Status beim Anklicken */
+        &:focus {
+            border-color: var(--primary);
+            background: white;
+        }
+    }
+
+    /* Dropdown mit dem Icon davor */
+    .input-icon {
+        display: flex;
+        align-items: center;
+        border: 1px solid var(--border);
+        border-radius: 6px;
+        background: var(--bg-body);
+        margin-bottom: 12px;
+
+        span { padding: 0 12px; }
+        
+        select {
+            border: none;
+            margin-bottom: 0;
+            background: transparent;
+            width: 100%;
+        }
+    }
+
+    /* NEU: Programm-Beschreibung (wächst automatisch in die Höhe) */
+    .program-details {
+        background: var(--bg-body);
+        border: 1px solid var(--border);
+        border-radius: 6px;
+        padding: 12px 14px;
+        font-size: 14px;
+        color: var(--text-muted);
+        margin-bottom: 12px;
+        line-height: 1.5;
+        min-height: 60px; /* Sieht auch ohne Text nicht zu leer aus */
+    }
+
+    /* Checkbox & Text */
+    label {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin: 4px 0 16px 0;
+        cursor: pointer;
+        font-size: 14px;
+
+        input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            accent-color: var(--primary);
+            cursor: pointer;
+        }
+    }
 }
 
-.card:last-child {
-    margin-bottom: 0;
-}
-
-.card-title {
-    font-size: 14px;
-    margin-bottom: 10px;
-}
-
-/* Emergency Stop */
+/* ============================
+   BUTTONS
+   ============================ */
 .notaus {
     width: 100%;
-    border: 2px solid #222;
-    text-align: center;
-    padding: 28px 14px;
-    font-size: 34px;
-    font-weight: normal;
-    background-color: #ff4d4d;
+    padding: 24px;
+    font-size: 28px;
+    font-weight: bold;
+    color: white;
+    background-color: var(--danger);
+    border: 3px solid #991b1b;
+    border-radius: var(--radius);
     cursor: pointer;
-    &:hover {
-        background-color: #a40000;
-    }
+    box-shadow: 0 4px 6px -1px rgba(220, 38, 38, 0.4);
 
-    &:active {
-        transform: scale(0.95);
-    }
+    /* Hover und Klick-Effekte mit & */
+    &:hover { filter: brightness(0.9); }
+    &:active { transform: scale(0.98); }
 }
 
-/* Program Selection */
-.form-control {
-    width: 100%;
-    padding: 8px 12px;
-    border: 2px solid #222;
-    border-radius: 20px;
-    background: #fff;
-    margin-bottom: 8px;
-    font-size: 14px;
-}
-
-.select-with-icon {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    border: 2px solid #222;
-    border-radius: 20px;
-    padding: 4px 12px;
-    margin-bottom: 8px;
-}
-
-.select-with-icon select {
-    border: none;
-    width: 100%;
-    outline: none;
-    background: transparent;
-    font-size: 14px;
-}
-
-.checkbox-group {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    margin: 10px 4px;
-    font-size: 14px;
-}
-
-.checkbox-group input[type="checkbox"] {
-    width: 18px;
-    height: 18px;
-    border: 2px solid #222;
-    border-radius: 4px;
-    appearance: none;
-    cursor: pointer;
-    position: relative;
-}
-
-.checkbox-group input[type="checkbox"]:checked::after {
-    content: "✓";
-    position: absolute;
-    top: -2px;
-    left: 3px;
-    font-size: 14px;
-}
-
-.action-buttons {
+.btn-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 12px;
-    margin-top: 12px;
-}
-
-.btn-wireframe {
-    border: 2px solid #222;
-    border-radius: 20px;
-    padding: 8px;
-    background: #fff;
-    text-align: center;
-    cursor: pointer;
-    font-size: 14px;
-}
-
-/* Frequent Programs Grid */
-.p-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 12px;
-    margin-top: 6px;
-}
-
-.p-btn {
-    border: 2px solid #222;
-    border-radius: 8px;
-    padding: 16px;
-    text-align: center;
-    background: #fff;
-    font-size: 14px;
-    cursor: pointer;
-}
-
-/* Right Side: Status/Error */
-.status-header {
-    text-align: center;
-    font-size: 18px;
-    margin-bottom: 12px;
-}
-
-.status-boxes {
-    display: grid;
-    grid-template-columns: 1fr 1.3fr;
+    grid-template-columns: repeat(2, 1fr);
     gap: 12px;
 }
 
-.status-box {
-    border: 2px solid #222;
+.btn {
+    padding: 10px 16px;
+    border: 1px solid transparent;
     border-radius: 6px;
-    padding: 24px 12px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
     text-align: center;
-    font-size: 16px;
+    text-decoration: none;
+
+    &:hover { filter: brightness(0.9); }
+
+    /* Modifier-Klassen */
+    &.btn-secondary { background: var(--border); color: var(--text-main); }
+    &.btn-success { background: var(--success); color: white; }
+    &.btn-danger { background: var(--danger); color: white; }
+    
+    &.btn-outline {
+        background: white;
+        border-color: var(--border);
+        &:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+            background: #eff6ff;
+        }
+    }
 }
 
-.row-item {
+/* ============================
+   LISTEN & STATUS
+   ============================ */
+
+/* Statusanzeige */
+.status .btn-grid > div {
     display: flex;
     align-items: center;
     gap: 10px;
-    margin-bottom: 8px;
+    padding: 14px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: bold;
 
-    &:last-child {
-        margin-bottom: 0;
+    i {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background-color: currentColor;
     }
+
+    &.running { background: #dcfce7; color: #166534; border: 1px solid #bbf7d0; }
+    &.idle { background: var(--bg-body); color: var(--text-muted); border: 1px solid var(--border); }
+}
+
+/* Log-Listen (<ul>) */
+.logs ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    /* Einzelne Zeile in der Liste */
+    li {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 8px 12px;
+        background: var(--bg-body);
+        border-radius: 6px;
+        font-size: 13px;
+
+        /* Letztes Element ohne Margin (Dein Beispiel!) */
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+}
+
+/* Kleines Label (INFO, WARN) in den Listen */
+.badge {
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: bold;
+    background: var(--border);
+
+    &.info { background: #dbeafe; color: #1e40af; }
+    &.warn { background: #fef3c7; color: #92400e; }
 }

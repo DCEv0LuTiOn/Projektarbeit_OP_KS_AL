@@ -8,123 +8,98 @@
 </head>
 <body>
 
-    <!-- Header Navigation -->
-    <header class="navbar">
-        <div class="nav-company">
-            <img src="../static/Robotis_PI_Logo.png" alt="Logo" class="logo">
+    <header>
+        <div>
+            <img src="../static/Robotis_PI_Logo.png" alt="Logo">
             <span>Robotis-PI Steuerung</span>
         </div>
-        <a href="#" class="btn-download">Anleitung herunterladen</a>
+        <a href="#" class="btn btn-secondary">Anleitung herunterladen</a>
     </header>
 
-    <!-- Main Wireframe Layout -->
-    <main class="grid">
-
-        <!-- Left Column -->
-        <section class="col-left">
+    <main>
+        <!-- Linke Spalte -->
+        <section>
             
-            <!-- Not-Aus -->
-            <button class="card notaus">NOT-AUS</button>
+            <button class="notaus">NOT-AUS</button>
 
-            <!-- Programmauswahl -->
             <div class="card">
-                <div class="card-title">Programmauswahl</div>
+                <h2>Programmauswahl</h2>
                 
-                <div class="select-with-icon">
-                    <span class="icon-box">📋</span>
+                <div class="input-icon">
+                    <span>📋</span>
                     <select>
-                        <option>Programme</option>
+                        <option>Programm wählen...</option>
+                        <option>P1 - Initialisierung</option>
+                        <option>P2 - Routine A</option>
                     </select>
                 </div>
 
-                <input type="text" class="form-control" value="Programm Details" readonly>
+                <div class="program-details">
+                    Hier erscheint die detaillierte Beschreibung des Programms. 
+                    Dieser Bereich wächst automatisch mit, je nachdem ob hier nur ein kurzer Satz 
+                    oder eine sehr lange, komplexe Beschreibung eingefügt wird.
+                </div>
 
-                <div class="checkbox-group">
+                <label>
                     <input type="checkbox" id="endless">
-                    <label for="endless">Endlosschleife</label>
-                </div>
+                    <span>Endlosschleife</span>
+                </label>
 
-                <input type="text" class="form-control" value="Anzahl Zyklen">
+                <input type="number" placeholder="Anzahl Zyklen">
 
-                <div class="action-buttons">
-                    <button class="btn-wireframe">Start</button>
-                    <button class="btn-wireframe">Stop</button>
+                <div class="btn-grid">
+                    <button class="btn btn-success">Start</button>
+                    <button class="btn btn-danger">Stop</button>
                 </div>
             </div>
 
-            <!-- Häufige Programme -->
-            <div class="card">
-                <div class="card-title">Häufige Programme</div>
-                <div class="p-grid">
-                    <button class="p-btn">P1</button>
-                    <button class="p-btn">P2</button>
-                    <button class="p-btn">P3</button>
-                    <button class="p-btn">P4</button>
-                </div>
-            </div>
-
-        </section>
-
-        <!-- Right Column -->
-        <section class="col-right">
-
-            <!-- Status/Fehler -->
-            <div class="card">
-                <div class="status-header">Status/Fehler</div>
-                <div class="status-boxes">
-                    <div class="status-box">Programm ... läuft</div>
-                    <div class="status-box">Fehler ... aufgetreten</div>
-                </div>
-            </div>
-
-            <!-- Anzahl Programmdurchläufe -->
-            <div class="card">
-                <div class="card-title">Anzahl Programmdurchläufe</div>
-                <div class="row-item">
-                    <div>Tile</div>
-                    <div>Text zur Beschreibung</div>
-                </div>
-                <div class="row-item">
-                    <div>Tile</div>
-                    <div>Text zur Beschreibung</div>
-                </div>
-                <div class="row-item">
-                    <div>Tile</div>
-                    <div>Text zur Beschreibung</div>
-                </div>
-                <div class="row-item">
-                    <div>Tile</div>
-                    <div>Text zur Beschreibung</div>
-                </div>
-                <div class="row-item">
-                    <div>Tile</div>
-                    <div>Text zur Beschreibung</div>
-                </div>
-            </div>
-
-            <!-- Programm-Log -->
-            <div class="card">
-                <div class="card-title">Programm-Log</div>
-                <div class="row-item">
-                    <div>Tile</div>
-                    <div>Text zur Beschreibung</div>
-                </div>
-                <div class="row-item">
-                    <div>Tile</div>
-                    <div>Text zur Beschreibung</div>
-                </div>
-                <div class="row-item">
-                    <div>Tile</div>
-                    <div>Text zur Beschreibung</div>
-                </div>
-                <div class="row-item">
-                    <div>Tile</div>
-                    <div>Text zur Beschreibung</div>
+            <div class="card quick-programs">
+                <h2>Häufige Programme</h2>
+                <div class="btn-grid">
+                    <button class="btn btn-outline">P1</button>
+                    <button class="btn btn-outline">P2</button>
+                    <button class="btn btn-outline">P3</button>
+                    <button class="btn btn-outline">P4</button>
                 </div>
             </div>
 
         </section>
 
+        <!-- Rechte Spalte -->
+        <section>
+
+            <div class="card status">
+                <h2>Status / Systemzustand</h2>
+                <div class="btn-grid">
+                    <div class="running">
+                        <i></i> Programm läuft...
+                    </div>
+                    <div class="idle">
+                        <i></i> Kein Fehler
+                    </div>
+                </div>
+            </div>
+
+            <!-- Log-Listen einfach als <ul> Liste -->
+            <div class="card logs">
+                <h2>Anzahl Programmdurchläufe</h2>
+                <ul>
+                    <li><span class="badge">Durchlauf 1</span> Erfolgreich abgeschlossen (12s)</li>
+                    <li><span class="badge">Durchlauf 2</span> Erfolgreich abgeschlossen (11s)</li>
+                    <li><span class="badge">Durchlauf 3</span> Erfolgreich abgeschlossen (12s)</li>
+                </ul>
+            </div>
+
+            <div class="card logs">
+                <h2>Programm-Log</h2>
+                <ul>
+                    <li><span class="badge info">INFO</span> System gestartet</li>
+                    <li><span class="badge info">INFO</span> Verbindung hergestellt</li>
+                    <li><span class="badge warn">WARN</span> Spannung leicht unter Sollwert</li>
+                </ul>
+            </div>
+
+        </section>
     </main>
 
 </body>
