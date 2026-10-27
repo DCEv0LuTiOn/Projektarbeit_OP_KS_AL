@@ -48,7 +48,7 @@ if __name__ == "__main__":
     cam = CameraService()
     try:
         frame = cam.get_frame()
-        cv2.imwrite("kamera_test.jpg", frame)
+        cv2.imwrite("picture_ai/kamera_test.jpg", frame)
         print(f"[Test] Testbild 'kamera_test.jpg' erfolgreich gespeichert. Aufloesung: {frame.shape[1]}x{frame.shape[0]}")
     finally:
         cam.close()
