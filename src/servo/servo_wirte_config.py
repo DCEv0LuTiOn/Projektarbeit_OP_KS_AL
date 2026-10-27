@@ -14,38 +14,46 @@ PROTOCOL_VERSION = 1.0       # AX-12A nutzt Protokoll 1.0
 # ==============================================================================
 
 # Die neue ID, die der Servo erhalten soll (1 bis 252).
+# Werkseinstellung: 1
 CONF_NEW_ID          = 2 
 
 # Antwort-Verzögerung in Mikrosekunden (Wert * 2 us). 
 # 0 = schnellste Kommunikation (empfohlen für U2D2 Adapter).
+# Werkseinstellung: 250 (entspricht 500 µs Verzögerung)
 CONF_RETURN_DELAY    = 0
 
 # Mechanische Winkel-Limits (0 bis 1023).
 # Standard für 300° Bewegungsradius: CW = 0, CCW = 1023.
 # Wenn BEIDE Werte auf 0 stehen, dreht der Servo endlos (Wheel Mode).
+# Werkseinstellung: CW = 0, CCW = 1023
 CONF_CW_ANGLE_LIMIT  = 0
 CONF_CCW_ANGLE_LIMIT = 1023
 
 # Maximale Betriebstemperatur in Grad Celsius (0 bis 99). 
-# Standard ist 70. Schützt vor dem Durchbrennen.
+# Schützt vor dem Durchbrennen.
+# Werkseinstellung: 70 (°C)
 CONF_MAX_TEMP        = 70
 
 # Spannungslimits (Wert * 10 = Volt).
-# Dein System läuft auf 11,1V LiPo. Min 90 (9.0V) schützt den Akku 
-# vor Tiefenentladung, Max 140 (14.0V) vor Überspannung.
+# Für 11,1V LiPo schützt Min 90 (9.0V) vor Tiefenentladung.
+# Werkseinstellung Min: 60 (6.0V)
+# Werkseinstellung Max: 140 (14.0V)
 CONF_MIN_VOLTAGE     = 90
 CONF_MAX_VOLTAGE     = 140
 
 # Maximales Drehmoment (0 bis 1023). 
 # 1023 ist die volle Kraft. Niedrigere Werte machen den Motor schwächer.
+# Werkseinstellung: 1023 (100% Kraft)
 CONF_MAX_TORQUE      = 1023
 
 # Alarm-LED Konditionen (Fehler, bei denen die rote LED blinkt).
 # 36 = Überhitzung (32) + Überlastung (4).
+# Werkseinstellung: 36
 CONF_ALARM_LED       = 36
 
 # Shutdown Konditionen (Fehler, bei denen der Motor aus Sicherheitsgründen abschaltet).
 # 36 = Überhitzung (32) + Überlastung (4).
+# Werkseinstellung: 36
 CONF_SHUTDOWN        = 36
 
 
