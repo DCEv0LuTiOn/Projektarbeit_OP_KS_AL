@@ -68,7 +68,7 @@ class DynamixelBus:
 # DIREKTER TEST DER BUS-KLASSE (`python dynamixel_bus.py`)
 # ==============================================================================
 if __name__ == '__main__':
-    _DEVICENAME    = 'COM12'   # 'COMx' (Windows) oder '/dev/ttyUSB0' (Linux/Pi)
+    _DEVICENAME    = '/dev/ttyUSB0'   # 'COM12' (Windows) oder '/dev/ttyUSB0' (Linux/Pi)
 
     bus = DynamixelBus(device_name=_DEVICENAME)
     
