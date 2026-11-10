@@ -18,11 +18,18 @@ def main():
     bus.get_servo(3).move(position=512, speed=100)  # Mittelstellung
     bus.get_servo(5).move(position=512, speed=100)  # Mittelstellung
 
-    # Warte, bis das Servo seine Bewegung abgeschlossen hat
-    # servo1.wait_until_stopped(timeout=5.0)
-
-    # Trenne die Verbindung und schalte das Drehmoment ab
-    bus.disconnect(wait_for_servos=True)
+    try:
+        while True:
+            # Hier können weitere Steuerbefehle oder Telemetrieabfragen erfolgen
+            bus.get_servo(5).move(position=400, speed=100) 
+            bus.get_servo(5).wait_until_stopped(timeout=5.0)  # Warte, bis das Servo seine Bewegung abgeschlossen hat
+            bus.get_servo(5).move(position=700, speed=100) 
+            bus.get_servo(5).wait_until_stopped(timeout=5.0)  # Warte, bis das Servo seine Bewegung abgeschlossen hat
+    except KeyboardInterrupt:
+        print("Beende das Programm...")
+    finally:
+        bus.disconnect(wait_for_servos=True)
+        # Trenne die Verbindung und schalte das Drehmoment ab
 
 
 if __name__ == "__main__":
