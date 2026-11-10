@@ -95,14 +95,27 @@ class AX12AServo:
 
     def wait_until_stopped(self, poll_delay: float = 0.05, timeout: float = 10.0) -> bool:
         """Blockiert die Ausführung, bis der Servo seine Zielposition erreicht hat."""
+        # Kurze Pause, damit der Servo den zuletzt gesendeten Bewegungsbefehl
+        # erst einmal verarbeiten kann, bevor wir seinen Status abfragen.
         time.sleep(0.05)
+
+        # Startzeit für das Timeout speichern.
         start_time = time.time()
-        
+
+        # Solange der Servo laut Statusregister noch in Bewegung ist,
+        # regelmäßig erneut abfragen und auf das Ende warten.
         while self.is_moving():
+            # Kurz warten, damit wir den Servo nicht in zu schnellen Abständen
+            # permanent ausfragen.
             time.sleep(poll_delay)
+
+            # Wenn der Servo länger als erlaubt braucht, brechen wir ab und
+            # geben False zurück, damit der Aufrufer das Problem erkennen kann.
             if time.time() - start_time > timeout:
                 print(f"[Servo {self._id}] Timeout beim Warten auf Bewegungsende.")
                 return False
+
+        # Wenn is_moving() nicht mehr True liefert, ist die Zielposition erreicht.
         return True
 
     # --------------------------------------------------------------------------

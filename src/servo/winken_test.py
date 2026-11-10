@@ -20,15 +20,17 @@ def main():
 
     try:
         while True:
-            bus.get_servo(5).move(position=200, speed=200) 
-            bus.get_servo(5).wait_until_stopped(timeout=2.0)  # Warte, bis das Servo seine Bewegung abgeschlossen hat
-            bus.get_servo(5).move(position=500, speed=200) 
-            bus.get_servo(5).wait_until_stopped(timeout=2.0)  # Warte, bis das Servo seine Bewegung abgeschlossen hat
-            
-            bus.get_servo(3).move(position=300, speed=200) 
-            bus.get_servo(3).wait_until_stopped(timeout=2.0)  # Warte, bis das Servo seine Bewegung abgeschlossen hat
-            bus.get_servo(3).move(position=500, speed=200) 
-            bus.get_servo(3).wait_until_stopped(timeout=2.0)  # Warte, bis das Servo seine Bewegung abgeschlossen hat
+            # Beide Servos starten in derselben Schleifenrunde ihre Bewegung.
+            bus.get_servo(5).move(position=200, speed=200)
+            bus.get_servo(3).move(position=300, speed=200)
+
+            # Gemeinsam warten, bis beide ihre Bewegung abgeschlossen haben.
+            bus.wait_until_all_stopped(timeout=10.0)
+
+            # Nächste gemeinsame Bewegung für beide Servos.
+            bus.get_servo(5).move(position=500, speed=200)
+            bus.get_servo(3).move(position=500, speed=200)
+            bus.wait_until_all_stopped(timeout=10.0)
     except KeyboardInterrupt:
         print("Beende das Programm...")
     finally:
