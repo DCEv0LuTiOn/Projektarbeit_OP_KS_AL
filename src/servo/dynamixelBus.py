@@ -8,7 +8,7 @@ class DynamixelBus:
     angeschlossenen Dynamixel-Servos.
     """
 
-    def __init__(self, device_name: str, baudrate: int = AX12AServo._DEFAULT_BAUDRATE, protocol_version: float = AX12AServo._DEFAULT_PROTOCOL_VERSION):
+    def __init__(self, device_name: str = '/dev/ttyUSB0', baudrate: int = AX12AServo._DEFAULT_BAUDRATE, protocol_version: float = AX12AServo._DEFAULT_PROTOCOL_VERSION):
         """
         Initialisiert die Bus-Schnittstelle.
 
