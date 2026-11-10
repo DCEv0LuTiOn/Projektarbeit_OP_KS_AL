@@ -20,16 +20,15 @@ def main():
 
     try:
         while True:
-            # Hier können weitere Steuerbefehle oder Telemetrieabfragen erfolgen
             bus.get_servo(5).move(position=200, speed=50) 
-            # bus.get_servo(5).wait_until_stopped(timeout=5.0)  # Warte, bis das Servo seine Bewegung abgeschlossen hat
+            bus.get_servo(5).wait_until_stopped(timeout=5.0)  # Warte, bis das Servo seine Bewegung abgeschlossen hat
             bus.get_servo(5).move(position=500, speed=50) 
-            # bus.get_servo(5).wait_until_stopped(timeout=5.0)  # Warte, bis das Servo seine Bewegung abgeschlossen hat
-            # Hier können weitere Steuerbefehle oder Telemetrieabfragen erfolgen
+            bus.get_servo(5).wait_until_stopped(timeout=5.0)  # Warte, bis das Servo seine Bewegung abgeschlossen hat
+            
             bus.get_servo(3).move(position=300, speed=50) 
-            # bus.get_servo(3).wait_until_stopped(timeout=5.0)  # Warte, bis das Servo seine Bewegung abgeschlossen hat
+            bus.get_servo(3).wait_until_stopped(timeout=5.0)  # Warte, bis das Servo seine Bewegung abgeschlossen hat
             bus.get_servo(3).move(position=500, speed=50) 
-            # bus.get_servo(3).wait_until_stopped(timeout=5.0)  # Warte, bis das Servo seine Bewegung abgeschlossen hat
+            bus.get_servo(3).wait_until_stopped(timeout=5.0)  # Warte, bis das Servo seine Bewegung abgeschlossen hat
     except KeyboardInterrupt:
         print("Beende das Programm...")
     finally:
