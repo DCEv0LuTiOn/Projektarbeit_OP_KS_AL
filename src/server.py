@@ -15,7 +15,7 @@ def index():
     return render_template("index.html")
 
 
-def _jetzt() -> str:
+def current_time() -> str:
     """Aktueller Zeitpunkt als ISO-Text (SQLite speichert Datum/Zeit als Text)."""
     return  datetime.now().isoformat(timespec="seconds")
 

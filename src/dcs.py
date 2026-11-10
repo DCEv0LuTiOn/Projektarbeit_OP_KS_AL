@@ -1,6 +1,6 @@
 from dataclasses import dataclass, field
 from typing import Optional
-from server import _jetzt
+from server import current_time
 
 
 # ---------------------------------------------------------------------------
@@ -31,7 +31,7 @@ class ProgrammschrittDC:
 class ProgrammDC:
     name: str
     beschreibung: str = ""
-    erstellt_am: str = field(default_factory=_jetzt)
+    erstellt_am: str = field(default_factory=current_time)
     programm_id: Optional[int] = None #Primary Key, wird von der Datenbank vergeben
 
     
@@ -42,7 +42,7 @@ class ProgrammdurchlaufDC:
     endlosschleife: bool = False
     anzahl_zyklen_geplant: int = 1
     anzahl_zyklen_abgeschlossen: int = 0
-    start_zeit: str = field(default_factory=_jetzt)
+    start_zeit: str = field(default_factory=current_time)
     end_zeit: Optional[str] = None
     durchlauf_id: Optional[int] = None #Primary Key, wird von der Datenbank vergeben
 
@@ -51,7 +51,7 @@ class ProgrammdurchlaufDC:
 class LogeintragDC:
     typ: str  # INFO, WARNUNG, FEHLER oder MECHANISCH
     nachricht: str
-    zeitstempel: str = field(default_factory=_jetzt)
+    zeitstempel: str = field(default_factory=current_time)
     durchlauf_id: Optional[int] = None  # None = Ereignis außerhalb eines Durchlaufs (z. B. Not-Aus)
     log_id: Optional[int] = None #Primary Key, wird von der Datenbank vergeben
     
