@@ -1,16 +1,16 @@
-from servo.dynamixelBus import DynamixelBus
-from servo.ax12_servo import AX12AServo
+from dynamixelBus import DynamixelBus, AX12AServo
+
 
 def main():
     # Beispiel für die Verwendung der DynamixelBus-Klasse
-    bus = DynamixelBus(device_name='/dev/ttyUSB0', baudrate=1000000)
-    
+    bus = DynamixelBus(device_name="/dev/ttyUSB0", baudrate=1000000)
+
     if not bus.connect():
         return
 
     # Füge ein Servo mit ID 1 hinzu
-    for i in range(1,18):
-        servo = bus.add_servo(dxl_id=i)
+    for i in range(1, 18):
+        servo:AX12AServo = bus.add_servo(dxl_id=i)
         servo.enable_torque()  # Aktiviere das Drehmoment für das Servo
 
     # Setze das Zielposition des Servos
@@ -23,6 +23,7 @@ def main():
 
     # Trenne die Verbindung und schalte das Drehmoment ab
     bus.disconnect(wait_for_servos=True)
+
 
 if __name__ == "__main__":
     main()
